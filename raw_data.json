@@ -1,0 +1,36 @@
+{
+    "list_of_commands" : [
+        {
+            "command" : "ls",
+            "keywords" : [
+                "list", "ls", "content", "files", "directories"
+            ],
+            "short-options" : [
+                {
+                    "option-command": "-a",
+                    "keywords" : [
+                        "hidden files", "hidden" 
+                    ],
+                    "description" : "List all hidden files aswell."
+                }
+            ],
+            "description" : "List content. Could include hidden files or more detailed list using short-options"
+        },
+        {
+            "command" : "pwd",
+            "keywords" : [
+                "current", "current directory", "path", "absolute path", "where am i"
+            ],
+            "short-options" : [
+                {
+                    "option-command": "-L",
+                    "keywords" : [
+                        "enviroment", "symlink" 
+                    ],
+                    "description" : "Use pwd from environment. Even if it contains symlink."
+                }
+            ],
+            "description" : "Lists your current directory path."
+        }
+    ]
+}

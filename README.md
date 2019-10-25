@@ -2,7 +2,7 @@
 
 A CLI tool/software you can install to help you remember that command. 
 Think of Google Search but for Linux commands.
-Programme will suggest the closest matches to the description you provide it. 
+Programme will suggest the closest matches to the description you provide it.
 
 ## To Start, Clone Me 🙋‍♂️ Then Follow The Instructions below 👇🏾
 
@@ -12,3 +12,5 @@ Instructions:-
 3) Clone this project and get rolling!!!
 
 #To be continued...
+
+**Built with ❤️ by Generation & AWS Manchester Team #1**

@@ -27,18 +27,39 @@ def show_all_available_commands():
 #show_all_available_commands()
 
 #initiate list for storing all the main keywords
-main_keywords = []
+main_keywords = {}
+
+def add_new_command(new_command_name):
+    main_keywords[new_command_name] = []
 
 def store_all_keywords():
     #make a list of all the keywords
     for comm in all_commands["list_of_commands"]:
+        
+        #To keep track of the current command so we can attach the keywords to them. Look at structure of JSON to understand why.
+        new_command = None
+
         for key, value in comm.items():
+
+            def update_command(para):
+                #The way scopes work in Python, we need to pull in the global variable by declaring it as nonlocal
+                #so it does not initiate it as a new local variable
+                nonlocal new_command
+                new_command = para
+
+            if key == "command":
+                #Update local scope
+                update_command(value);
+                print("Setting up new command => " , new_command)
+                #Add to main_keywords dictionary using the function we made above
+                add_new_command(new_command)
+
             if key == "keywords":
                 word_length = len(value)
                 for word in range(word_length):
-                    print("adding ", value[word], " to the list...")
-                    main_keywords.append(value[word])
+                    print("adding ", value[word], " to the command...")
+                    main_keywords[new_command].append(value[word])
 
 store_all_keywords()
 
-print("Here are all the keywords from the JSON file so far", main_keywords)
+print("Here are ALL the keywords:- ", main_keywords)

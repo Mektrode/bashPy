@@ -24,4 +24,21 @@ def show_all_available_commands():
             if key == "command":
                 print("{} : {}".format(key, value))
 
-show_all_available_commands()
+#show_all_available_commands()
+
+#initiate list for storing all the main keywords
+main_keywords = []
+
+def store_all_keywords():
+    #make a list of all the keywords
+    for comm in all_commands["list_of_commands"]:
+        for key, value in comm.items():
+            if key == "keywords":
+                word_length = len(value)
+                for word in range(word_length):
+                    print("adding ", value[word], " to the list...")
+                    main_keywords.append(value[word])
+
+store_all_keywords()
+
+print("Here are all the keywords from the JSON file so far", main_keywords)

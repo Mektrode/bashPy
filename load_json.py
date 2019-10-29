@@ -33,7 +33,7 @@ def add_new_command(new_command_name):
     main_keywords[new_command_name] = []
 
 def store_all_keywords():
-    print("############################ Starting copt of all keywords into local dictionary!")
+    print("############################ Starting copy of all keywords into local dictionary!")
     #make a list of all the keywords
     for comm in all_commands["list_of_commands"]:
         
@@ -80,10 +80,10 @@ def parse_search(query):
 
 def start_search():
     while True:
-        query = str(input("Whar would you like to do today?"))
+        query = str(input("What would you like to do today?\n > "))
 
         if query == "":
-            print("You have not searched anything")
+            print("You have not searched for anything")
         else:
             parse_search(query)
             break

@@ -70,6 +70,14 @@ def parse_search(query):
     query_words = query.split()
     print(query_words)
 
+    for command in main_keywords:
+        for command_words in main_keywords[command]:
+            for user_word in query_words:
+                #print("comapring", user_word, " with ", command_words)
+                if user_word == command_words:
+                    print("MATCHED the word ", user_word, " with command => ", command)
+
+
 def start_search():
     while True:
         query = str(input("Whar would you like to do today?"))

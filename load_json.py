@@ -72,19 +72,16 @@ def parse_search(query):
     query_words = [q.strip() for q in query.split(",")]
     #print(query_words)
 
-    found_matches = False
-
     for command in main_keywords:
         for command_words in main_keywords[command]:
             for user_word in query_words:
                 #print("comparing", user_word, " with ", command_words)
                 if user_word == command_words:
                     #print("MATCHED the word ", user_word, " with command => ", command)
-                    print(f"Here is a list of all commands that perform the same role as \"{user_word}\":\n{main_keywords[command]}\n")
-                    found_matches = True
+                    print(f"Command: \"{command}\":\nKeywords: {main_keywords[command]}\n")
                     query_words.remove(user_word)
-    if found_matches == False:
-        print(f"Unfortunately your query, {query}, did not match any results in the database.\n")
+    if len(user_word) > 0:
+        print(f"Unfortunately {', '.join(query_words)}, did not match any results in the database.\n")
 
 
 
@@ -94,7 +91,7 @@ def start_search():
 
         if query == "":
             print("You have not searched for anything")
-        elif query == "exit" or query == "quit" or query == "q":
+        elif query in ["exit","q","quit"]:
             print("Goodbye!")
             break
         else:

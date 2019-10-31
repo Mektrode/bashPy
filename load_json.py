@@ -33,7 +33,7 @@ def add_new_command(new_command_name):
     main_keywords[new_command_name] = []
 
 def store_all_keywords():
-    print("############################ Starting copy of all keywords into local dictionary!")
+    print("\n\n############################ Starting copy of all keywords into local dictionary!")
     #make a list of all the keywords
     for comm in all_commands["list_of_commands"]:
         
@@ -60,7 +60,7 @@ def store_all_keywords():
                 for word in range(word_length):
                     #print("adding ", value[word], " to the command...")
                     main_keywords[new_command].append(value[word])
-    print("############################ Copy Finished!")
+    print("############################ Copy Finished!\n\n")
 
 store_all_keywords()
 
@@ -70,18 +70,17 @@ def parse_search(query):
     print("")
     #Splits query words and also strips the whitespace
     query_words = [q.strip() for q in query.split(",")]
-    #print(query_words)
+    not_matched = query_words.copy()
 
     for command in main_keywords:
         for command_words in main_keywords[command]:
             for user_word in query_words:
                 #print("comparing", user_word, " with ", command_words)
                 if user_word == command_words:
-                    #print("MATCHED the word ", user_word, " with command => ", command)
                     print(f"Command: \"{command}\":\nKeywords: {main_keywords[command]}\n")
-                    query_words.remove(user_word)
-    if len(user_word) > 0:
-        print(f"Unfortunately {', '.join(query_words)}, did not match any results in the database.\n")
+                    not_matched.remove(user_word)
+    if len(not_matched) > 0:
+        print(f"Unfortunately {', '.join(not_matched)}, did not match any results in the database.\n")
 
 
 
@@ -97,5 +96,4 @@ def start_search():
         else:
             parse_search(query)
 
-print (main_keywords)
 start_search()

@@ -11,7 +11,14 @@
                     "keywords" : [
                         "hidden files", "hidden" 
                     ],
-                    "description" : "List all hidden files aswell."
+                    "description" : "List all hidden files as well."
+                },
+                {
+                    "option-command": "-l",
+                    "keywords" : [
+                        "list", "details", "list details" 
+                    ],
+                    "description" : "Provides a detailed list of files in a directory."
                 }
             ],
             "description" : "List content. Could include hidden files or more detailed list using short-options"

@@ -19,7 +19,7 @@
         {
             "command" : "pwd",
             "keywords" : [
-                "current", "current directory", "path", "absolute path", "where am i"
+                "pwd", "current", "current directory", "path", "absolute path", "where am i"
             ],
             "short-options" : [
                 {
